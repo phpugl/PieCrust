@@ -127,7 +127,7 @@ class PageLoader
 
                 // Sanity test: if the first content segment is null, it may mean that the
                 // original page file was in a non-supported encoding.
-                if (count($contents[$key]) > 0 && $contents[$key]->parts[0]->content === null)
+                if (isset($contents[$key]) && $contents[$key]->parts[0]->content === null)
                     throw new PieCrustException("Corrupted cache: is the page not saved in UTF-8 encoding?");
             }
             
